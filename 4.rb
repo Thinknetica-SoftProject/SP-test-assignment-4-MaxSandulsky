@@ -17,3 +17,31 @@
 ## Решение:
 
 
+file = File.open("data/4.txt")
+file_data = file.read
+
+str = ''
+table = Array.new(1000) { Array.new(3) { 0 } }
+answer = 0
+j, k = 0, 0
+
+for i in 0..file_data.size
+
+  if file_data[i] == "x"
+    table[j][k] = str.to_i
+    str = ""
+    k += 1
+  elsif file_data[i] == "\n"
+    table[j][k] = str.to_i
+    table[j] = table[j].sort
+    answer += 3*table[j][0]*table[j][1] + 2*table[j][0]*table[j][2] + 2*table[j][1]*table[j][2]
+    str = ""
+    k = 0
+    j += 1
+  elsif file_data[i] == nil
+  else
+    str += file_data[i]
+  end
+end
+
+puts "#{answer} кв. см."
