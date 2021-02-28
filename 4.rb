@@ -44,4 +44,4 @@ for i in 0..file_data.size
   end
 end
 
-puts "#{answer} кв. см."
+puts "#{answer}"
