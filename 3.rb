@@ -15,7 +15,7 @@ file = File.open("data/3.txt")
 file_data = file.read
 
 str = ''
-table = Array.new(17) { Array.new(17) { 0 } }
+table = Array.new(16) { Array.new(16) { 0 } }
 
 j, k = 0, 0
 
@@ -36,9 +36,9 @@ for i in 0..file_data.size
   end
 end
 
-
+answer = 0
 for i in 0..15
-  table[i][16] = table[i].max - table[i].min
-  table[16][0] +=table[i][16]
+  answer += (table[i].max - table[i].min)
 end
-puts table[16][0]
+
+puts answer
