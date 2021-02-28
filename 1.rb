@@ -16,6 +16,17 @@
 #
 ## Решение:
 
+file = File.open("data/1.txt")
+file_data = file.read
 
-
-
+a = 0
+i = 0
+while i < file_data.size
+  if file_data[i] == "("
+    a += 1
+  elsif file_data[i] == ")"
+    a -= 1
+  end
+  i += 1
+end
+puts a

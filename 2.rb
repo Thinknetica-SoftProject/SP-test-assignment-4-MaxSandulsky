@@ -15,4 +15,18 @@
 #
 #
 ## Решение:
+require 'digest'
 
+md5 = Digest::MD5.new
+str = gets.chomp
+
+trash = 0
+md5.update str + trash.to_s
+
+while md5.hexdigest.to_s[0..4] != '00000'
+  md5.reset
+  trash += 1
+  md5.update str + trash.to_s
+end
+
+puts "#{trash}"
